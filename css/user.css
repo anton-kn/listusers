@@ -1,0 +1,72 @@
+/* общее окно о пользователях */
+.user-info{
+  margin-top: 30px;
+  height: auto;
+  width: auto;
+}
+
+/* упорядоченный список */
+.user-list{
+  padding-left: 0;
+  border-radius: 5px;
+  list-style: none; /*убираем маркер*/
+  counter-reset: li; /*Запрещаем инициацию счётчика для текущего селектора. */
+}
+
+
+.user-list > li{
+  height: 128px;
+  margin-top: 30px;
+  position: relative;
+  border: 1px solid #8FBC8F;
+  border-radius: 10px;
+}
+
+/* нумерация пользователей */
+.user-list > li::before{
+  position: absolute;
+  content: "";
+  background: white;
+  counter-increment: li; /*добавляем счетчик*/
+  content: counter(li); /*вставляем счетцик*/
+  color: #E9967A;
+  font-size: 20px;
+  font-weight: bold;
+  top: -20px;
+  left: -20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* для фото */
+.avatar{
+  width: 128px;
+  float: left;
+}
+
+/* свойства для картинки */
+.avatar img{
+  width: 120px;
+  height: 120px;
+  border: 4px solid white;
+  border-radius: 10px;
+  transition-property: border;
+}
+
+/* изменяем картинку при наведении мыши */
+.avatar img:hover{
+  transition-duration: 1s;
+  border: 4px solid #E9967A;
+  cursor: pointer;
+}
+
+/* минимальная информация о пользователях */
+.desc{
+  padding-top:10px;
+  padding-left: 115px;
+  width: auto;
+}
+/*список информации о пользователях*/
+.desc > ol > li{
+  padding: 5px;
+}

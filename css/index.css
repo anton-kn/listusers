@@ -1,0 +1,85 @@
+html{
+  font-family: "Gill Sans", sans-serif;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+/* основа, где будут показаны пользователи */
+.wrapper{
+  margin: 30px 10px 10px 10px;
+  padding: 10px;
+  height: auto;
+  width: auto;
+  border: 1px solid #8FBC8F;
+  border-radius: 5px;
+}
+
+.wrapper::before{
+  position: absolute;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #FEFEFE;
+  color: #E9967A;
+  font-size:20px;
+  font-weight: bold;
+  content: "Список людей";
+  top: 19px;
+  left: 50px;
+}
+
+.control{
+  margin: 10px 0 10px 0;
+  padding: 0;
+}
+
+.select{
+  position: relative;
+  width: 200px;
+}
+
+.select select{
+  padding: 10px 20px;
+  height: 40px;
+  width: 200px;
+  font-size: 11pt;
+  background-color: #4CAF50;
+  border: none;
+  cursor: pointer;
+  color: white;
+  /* убираем дефолтную стрелку select */
+  -webkit-appearance: none; /*Chrome*/
+  -moz-appearance: none; /*mozilla*/
+  appearance: none;
+  float: left; /*обтекание с лева*/
+}
+
+.select::after{
+  content: "";
+  display: block;
+  /*создаем стрелку*/
+  border-style: solid; /*рамка из сплошной линии*/
+  border-width: 8px 7px 0 7px; /*убираем не нужные линии*/
+  border-color: white transparent transparent transparent; /*настраиваем цвет*/
+  position: absolute; /*позиционируем*/
+  top:50%;
+  pointer-events: none; /*не разрешаем срабатывать на события*/
+  right: 10px;
+  z-index: 1;
+  margin-top: 18px;
+}
+
+
+button{
+  margin-left: 10px;
+  padding: 10px 20px;
+  height: 40px;
+  width: auto;
+  font-size: 11pt;
+  background-color: #4CAF50;
+  border: none;
+  cursor: pointer;
+  color: white;
+}

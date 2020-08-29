@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/home/anton/programming/listusers/css/index.css">
+    <link rel="stylesheet" href="/home/anton/programming/listusers/css/user.css">
+    <title>Список пользователей</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="control">
+        <div class="select">
+          <select>
+            <option disabled value="0">Сортировать:</option>
+            <option value="1">По алфавиту</option>
+            <option value="2">В обратном порядке</option>
+          </select>
+        </div>
+        <button type="button" name="button">Загрузить</button>
+      </div>
+      <!-- блок о всех пользователях -->
+      <div class="user-info">
+        <!-- показываем ввиде списка пользователей -->
+        <ol class="user-list">
+          <!-- фото пользователя -->
+          <li><div class="avatar">
+                <img src="/home/anton/programming/listusers/css/no photo.png">
+              </div>
+              <!-- информация о пользователе -->
+              <div class="desc">
+                <ol class="list-about-users">
+                  <li>Имя: </li>
+                  <li>Фамилия: </li>
+                  <li>Состояние: </li>
+                </ol>
+              </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <script src="/home/anton/programming/listusers/js/addContent/TegLi.js" charset="utf-8"></script>
+    <script src="/home/anton/programming/listusers/js/User.js" charset="utf-8"></script>
+    <script src="/home/anton/programming/listusers/js/createRequest.js" charset="utf-8"></script>
+    <script src="/home/anton/programming/listusers/js/app.js" charset="utf-8"></script>
+  </body>
+</html>
