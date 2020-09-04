@@ -37,13 +37,13 @@ body{
 
 .select{
   position: relative;
-  width: 200px;
+  width: 300px;
 }
 
 .select select{
   padding: 10px 20px;
   height: 40px;
-  width: 200px;
+  width: 300px;
   font-size: 11pt;
   background-color: #4CAF50;
   border: none;

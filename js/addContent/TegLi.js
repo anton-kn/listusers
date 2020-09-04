@@ -19,9 +19,9 @@ class TegLi {
         </div>
         <div class="desc">
           <ol class="list-about-users">
-            <li>Имя: ${this.arrayTitle[0]}</li>
-            <li>Фамилия: ${this.arrayTitle[1]}</li>
-            <li>Состояние: ${this.arrayTitle[2]}</li>
+            <li>Имя: ${this.arrayTitle[1]}</li>
+            <li>Фамилия: ${this.arrayTitle[2]}</li>
+            <li>Статус: ${this.arrayTitle[0]}</li>
           </ol>
         </div>
     </li>`;
