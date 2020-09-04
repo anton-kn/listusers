@@ -4,22 +4,20 @@ form.onsubmit = function(e){
   // ссылка от куда берем данные
   let link = 'https://api.randomuser.me/1.0/?results=50&nat=gb,us&inc=gender,name,location,email,phone,picture';
   // возвращает объект о всех пользователях
-  let promise = getjson(link);
+  let promise = createRequest(link);
   promise.then(
-    result => {
-      console.log(result);
+    data => {
+      console.log(data);
+      
+      // чистим старый список
+      deleteUsers('.user-list');
       // длина объекта, в котором информация о пользователях
-      let objLength = result.results.length;
-      // пользователь
-      let firstUser = new User(result, 0);
-      // информация о пользователе
-      let nameInfo = firstUser.name();
-      // Фото пользователя
-      let picture = firstUser.pictureLarge();
-      // добавляем форму html
-      let li1 = new TegLi('.user-list', picture, nameInfo);
-      li1.addTegLi();
+      let length = data.results.length;
+      // массив данных, в котором все пользователи;
+      let arrUsers = data.results;
+      // добаляем всех на страницу
+      addAllUsers(arrUsers, '.user-list');
     },
-    error => console.log(error)
+    error => console.log(error),
   )
 };
