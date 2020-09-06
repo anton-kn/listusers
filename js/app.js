@@ -1,16 +1,18 @@
+//В этом файле происходит вся работа
+
 // загружаем данные с сервера при нажатии кнопки submit
 form.onsubmit = function(e){
   e.preventDefault();
   // сюда записываем значение select тдля сортировки
   let state = null;
-  let select = document.querySelector('#select');
   // обрабатываем select
+  let select = document.querySelector('#select');
   // значение для сортировки
   if (select.selectedIndex == 1){
-    console.log('select - 1');
+    // console.log('select - 1');
     state = 1;
   }else if (select.selectedIndex == 2) {
-    console.log('select - 2');
+    // console.log('select - 2');
     state = 2;
   }
 
@@ -34,6 +36,9 @@ form.onsubmit = function(e){
         let li = new TegLi('.user-list', users.pictureLarge(i), users.name(i));
         li.addTegLi();
       });
+
+      modalWindow();
+
     },
     error => console.log(error),
   )
