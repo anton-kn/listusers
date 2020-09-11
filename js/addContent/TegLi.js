@@ -29,4 +29,5 @@ class TegLi {
     const block = document.querySelector(this.nameClass);
     block.insertAdjacentHTML('beforeEnd', li);
   }
+
 }
