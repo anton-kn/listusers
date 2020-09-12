@@ -1,6 +1,6 @@
 // class покзывающий всю информацию
 class AllInformation {
-  constructor(picture, email, gender, location, phone) {
+  constructor(arrayTitle, picture, email, gender, location, phone) {
     // путь к фото
     this.picture = picture;
     this.email = email;
@@ -8,6 +8,8 @@ class AllInformation {
     //массив
     this.location = location;
     this.phone = phone;
+    // имя, фамилия в массиве
+    this.arrayTitle = arrayTitle;
   }
 
   // метод показывающий всю информацию по пользователе
@@ -18,6 +20,8 @@ class AllInformation {
     </div>
     <div class="all-user-information">
       <ol>
+        <li>Имя: ${this.arrayTitle[1]}</li>
+        <li>Фамилия: ${this.arrayTitle[2]}</li>
         <li>Род: ${this.gender}</li>
         <li>Город: ${this.location[1]} </li>
         <li>Штат: ${this.location[2]}</li>

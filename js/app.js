@@ -45,7 +45,6 @@ form.onsubmit = function(e){
       let avatar = document.querySelectorAll('.avatar');
       let modal = document.querySelector('#modal');
       let wrapper = document.querySelector('.wrapper');
-      let windows = document.querySelector('#windows');
       // переменная, куда записываем порядковый номер click
       avatar.forEach((item, i) => {
         // показываем i пользователя
@@ -53,19 +52,27 @@ form.onsubmit = function(e){
         avatar[i].onclick = ()=>{
           modal.style.display = 'block';
           // добавляем всю информацию
-          // email, gender, location = [null], phone, classTeg
-          let AddAllInformation = new AllInformation(users.pictureLarge(i), users.email(i), users.gender(i), users.location(i), users.phone(i));
+          // first, last, email, gender, location = [null], phone, classTeg
+          let AddAllInformation = new AllInformation(users.name(i), users.pictureLarge(i), users.email(i), users.gender(i), users.location(i), users.phone(i));
           AddAllInformation.addAllInformationAboutUser('#windows');
       };
 
       });
 
-      // ===закрываем модальное окно===
-      windows.onclick = () => {
-        modal.style.display = 'none';
-        wrapper.style.position = '';
+      // закрываем модальное окно
+      modal.onclick = (event) => {
+        console.log(event);
+        //закрываем окно только, когда click на id = modal originalTarget
+        if (event.target.id == 'modal'){
+        // if (event.explicitOriginalTarget.id == 'modal'){
+          modal.style.display = 'none';
+          wrapper.style.position = '';
+          // ловим координаты крестика для закрытия модального окна
+        }else if ((event.layerX > 480 && event.layerX < 565) && (event.layerY > 10 && event.layerY < 70)) {
+          modal.style.display = 'none';
+          wrapper.style.position = '';
+        }
       };
-      // modalWindowsClose();
     },
     error => console.log(error),
   )

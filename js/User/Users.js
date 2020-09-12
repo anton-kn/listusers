@@ -37,7 +37,8 @@ class Users {
   }
   // Пол
   gender(item){
-    return this.results()[item].gender;
+    let genderUser= this.results()[item].gender;
+    return genderUser[0].toUpperCase() + genderUser.slice(1);
   }
   // телефон
   phone(item){
@@ -49,8 +50,18 @@ class Users {
     let list = this.results()[item].location;
     let arr = [];
     for (let key in list){
-      // arr.push(list[key][0].toUpperCase()+ list[key].slice(1));
-      arr.push(list[key]);
+      // город и штат передаем с большой буквы
+      switch (key) {
+        case 'city':
+          arr.push(list[key][0].toUpperCase()+ list[key].slice(1));
+          // console.log(list[key]);
+          break;
+        case 'state':
+          arr.push(list[key][0].toUpperCase()+ list[key].slice(1));
+          break;
+        default:
+          arr.push(list[key]);
+      }
     }
     // возвращает массив данных: street, city, state, postcode,
     return arr;

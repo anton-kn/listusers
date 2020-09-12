@@ -4,37 +4,88 @@
   position: fixed;
   top: 0;
   left: 0;
+  /* margin-left: 50px;
+  margin-right: 50px; */
   width: 100%;
   height: 100%;
   background: #FFF8DC;
-  opacity: 0.9;
+  /* opacity: 0.9; */
+  background: rgba(7, 30, 43, 0.5);
   display: none;
   z-index: 1;
 }
 
+/* #windows {
+    height: 250px;
+    width: 600px;
+    padding: 20px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-right: 20%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 2px solid white;
+    border-radius: 5px;
+} */
+
 /*для подробной информации о пользователе*/
 #windows{
-  height: 200px;
-  width: 500px;
+  height: auto;
+  width: auto;
   padding: 20px;
-  /* margin: auto; */
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
   background: white;
+  border: 2px solid white;
+  border-radius: 5px; /*скругляем углы*/
+  float: left;
+}
+
+#cross{
+  padding-right: 10px;
+  padding-top: 10px;
+  background-image: url('/home/anton/programming/listusers/css/Cross.png');
+}
+
+#windows::before{
+  position: absolute;
+  content: '';
+  width: 50px;
+  height: 50px;
+  right: 10px;
+  top: 10px;
+  background-image: url(/home/anton/programming/listusers/css/Cross.png);
+  opacity: 0.1;
+  transition-property: opacity;
+}
+
+#windows:hover:before{
+  transition-duration: 1s;
+  opacity: 1;
+  cursor: pointer;
 }
 
 /* Фото на модальном окне */
-.avatar-modal{
+.avatar-modal > img{
   height: auto;
   width: auto;
-  border: 2px solid white;
+  border: 2px solid #8FBC8F;
   border-radius: 5px;
   float: left;
 }
 
 .all-user-information{
   padding-left: 150px;
+}
+
+.all-user-information > ol{
+  margin-top: 0;
+}
+
+.all-user-information > ol > li{
+  padding-top: 5px;
 }
