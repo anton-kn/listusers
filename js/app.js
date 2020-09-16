@@ -44,33 +44,35 @@ form.onsubmit = function(e){
       // открываем модальное окно
       let avatar = document.querySelectorAll('.avatar');
       let modal = document.querySelector('#modal');
-      let wrapper = document.querySelector('.wrapper');
+      let avatarModal = document.querySelector('.avatar-modal');
+      // let cross = document.querySelector('#cross');
       // переменная, куда записываем порядковый номер click
       avatar.forEach((item, i) => {
         // показываем i пользователя
         // modalWindowsCreate(users.pictureLarge(i), i);
         avatar[i].onclick = ()=>{
+          // показываем модальное окно
           modal.style.display = 'block';
+          // Вставляем картинку
+          let img = `<img src="${users.pictureLarge(i)}" alt="">`;
+          avatarModal.innerHTML = img;
           // добавляем всю информацию
           // first, last, email, gender, location = [null], phone, classTeg
-          let AddAllInformation = new AllInformation(users.name(i), users.pictureLarge(i), users.email(i), users.gender(i), users.location(i), users.phone(i));
-          AddAllInformation.addAllInformationAboutUser('#windows');
+          let AddAllInformation = new AllInformation(users.name(i), users.email(i), users.gender(i), users.location(i), users.phone(i));
+          AddAllInformation.addAllInformationAboutUser('.all-user-information');
       };
 
       });
 
       // закрываем модальное окно
+      let wrapper = document.querySelector('.wrapper');
       modal.onclick = (event) => {
-        console.log(event);
-        //закрываем окно только, когда click на id = modal originalTarget
-        if (event.target.id == 'modal'){
+        //закрываем окно только, когда click на id = modal и cross
+        if (event.target.id == 'modal' || event.target.parentElement.id == 'cross'){
         // if (event.explicitOriginalTarget.id == 'modal'){
           modal.style.display = 'none';
           wrapper.style.position = '';
           // ловим координаты крестика для закрытия модального окна
-        }else if ((event.layerX > 480 && event.layerX < 565) && (event.layerY > 10 && event.layerY < 70)) {
-          modal.style.display = 'none';
-          wrapper.style.position = '';
         }
       };
     },

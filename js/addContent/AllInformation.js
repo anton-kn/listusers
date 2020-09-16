@@ -1,8 +1,8 @@
 // class покзывающий всю информацию
 class AllInformation {
-  constructor(arrayTitle, picture, email, gender, location, phone) {
+  constructor(arrayTitle, email, gender, location, phone) {
     // путь к фото
-    this.picture = picture;
+    // this.picture = picture;
     this.email = email;
     this.gender = gender;
     //массив
@@ -13,12 +13,8 @@ class AllInformation {
   }
 
   // метод показывающий всю информацию по пользователе
-  addAllInformationAboutUser(idTeg){
+  addAllInformationAboutUser(nameSelector){
     let ol = `
-    <div class="avatar-modal">
-      <img src="${this.picture}" alt="">
-    </div>
-    <div class="all-user-information">
       <ol>
         <li>Имя: ${this.arrayTitle[1]}</li>
         <li>Фамилия: ${this.arrayTitle[2]}</li>
@@ -30,9 +26,8 @@ class AllInformation {
         <li>Эл.почта: ${this.email}</li>
         <li>Телефон: ${this.phone}</li>
       </ol>
-    </div>
     `;
-    let allInformation = document.querySelector(idTeg);
+    let allInformation = document.querySelector(nameSelector);
     allInformation.innerHTML = ol;
 
   }

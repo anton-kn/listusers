@@ -4,30 +4,15 @@
   position: fixed;
   top: 0;
   left: 0;
-  /* margin-left: 50px;
-  margin-right: 50px; */
   width: 100%;
   height: 100%;
   background: #FFF8DC;
   /* opacity: 0.9; */
-  background: rgba(7, 30, 43, 0.5);
+  background: rgba(7, 30, 43, 0.5); /*Делает прозрачным только этот слой modal*/
   display: none;
   z-index: 1;
 }
 
-/* #windows {
-    height: 250px;
-    width: 600px;
-    padding: 20px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    margin-right: 20%;
-    transform: translate(-50%, -50%);
-    background: white;
-    border: 2px solid white;
-    border-radius: 5px;
-} */
 
 /*для подробной информации о пользователе*/
 #windows{
@@ -42,44 +27,41 @@
   background: white;
   border: 2px solid white;
   border-radius: 5px; /*скругляем углы*/
+  transition-timing-function: linear;
+  transition-duration: 1s;
+  /* opacity: 0; */
+}
+
+/* крестик */
+#cross{
+  height: 50px;
+  width: 50px;
+  opacity: 0.1;
+  transition-property: opacity; /*Для того, чтобы кнопка плавно открывалась*/
+  transition-duration: 1s;
   float: left;
 }
-
-#cross{
-  padding-right: 10px;
-  padding-top: 10px;
-  background-image: url('/home/anton/programming/listusers/css/Cross.png');
-}
-
-#windows::before{
-  position: absolute;
-  content: '';
-  width: 50px;
-  height: 50px;
-  right: 10px;
-  top: 10px;
-  background-image: url(/home/anton/programming/listusers/css/Cross.png);
-  opacity: 0.1;
-  transition-property: opacity;
-}
-
-#windows:hover:before{
+#cross:hover{
   transition-duration: 1s;
   opacity: 1;
   cursor: pointer;
+  transition-property: opacity; /*Для того, чтобы кнопка плавно закрывалась*/
 }
 
-/* Фото на модальном окне */
+/* Фото в модальном окне */
+.avatar-modal{
+  float: left; /*Что бы элементы расположить в линию*/
+}
+
 .avatar-modal > img{
   height: auto;
   width: auto;
   border: 2px solid #8FBC8F;
   border-radius: 5px;
-  float: left;
 }
 
 .all-user-information{
-  padding-left: 150px;
+  float: left; /*Что бы элементы расположить в линию*/
 }
 
 .all-user-information > ol{
