@@ -1,21 +1,23 @@
 /* стили для модального окна и подробной информации о пользователе*/
 /* слой поверх всего */
-#modal{
+.modal{
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: #FFF8DC;
-  /* opacity: 0.9; */
   background: rgba(7, 30, 43, 0.5); /*Делает прозрачным только этот слой modal*/
   display: none;
   z-index: 1;
+  transition-timing-function: linear; /*плавно выдаем показываем окно*/
+  transition-duration: 0.2s;
+  opacity: 0;
 }
 
 
 /*для подробной информации о пользователе*/
-#windows{
+.windows{
   height: auto;
   width: auto;
   padding: 20px;
@@ -27,9 +29,6 @@
   background: white;
   border: 2px solid white;
   border-radius: 5px; /*скругляем углы*/
-  transition-timing-function: linear;
-  transition-duration: 1s;
-  /* opacity: 0; */
 }
 
 /* крестик */

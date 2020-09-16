@@ -43,8 +43,9 @@ form.onsubmit = function(e){
       // ===управляем модальным окном===
       // открываем модальное окно
       let avatar = document.querySelectorAll('.avatar');
-      let modal = document.querySelector('#modal');
+      let modal = document.querySelector('.modal');
       let avatarModal = document.querySelector('.avatar-modal');
+      // let windows = document.querySelector('.windows');
       // let cross = document.querySelector('#cross');
       // переменная, куда записываем порядковый номер click
       avatar.forEach((item, i) => {
@@ -53,6 +54,11 @@ form.onsubmit = function(e){
         avatar[i].onclick = ()=>{
           // показываем модальное окно
           modal.style.display = 'block';
+          // // Плавно появляется модальное окно
+          setTimeout(()=>{
+            modal.style.opacity = 1;
+          },200);
+
           // Вставляем картинку
           let img = `<img src="${users.pictureLarge(i)}" alt="">`;
           avatarModal.innerHTML = img;
@@ -67,12 +73,16 @@ form.onsubmit = function(e){
       // закрываем модальное окно
       let wrapper = document.querySelector('.wrapper');
       modal.onclick = (event) => {
-        //закрываем окно только, когда click на id = modal и cross
-        if (event.target.id == 'modal' || event.target.parentElement.id == 'cross'){
+        // console.log(event.target);
+        //закрываем окно только, когда click на modal или cross
+        if (event.target.className == 'modal' || event.target.parentElement.id == 'cross'){
         // if (event.explicitOriginalTarget.id == 'modal'){
-          modal.style.display = 'none';
           wrapper.style.position = '';
-          // ловим координаты крестика для закрытия модального окна
+          // Плавно закрываем модальное окно
+          setTimeout(()=>{
+            modal.style.display = 'none';
+          },200);
+          modal.style.opacity = 0;
         }
       };
     },
