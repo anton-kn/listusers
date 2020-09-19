@@ -11,14 +11,14 @@ class TegLi {
   }
   // метод для добавления структуры, в которую будем записывать
   // информацию о пользователе
-  addTegLi(){
+  addTegLi(avatar, desc, listUsers){
     // html код, который надо добавить на страницу
     const li = `
-    <li><div class="avatar">
+    <li><div class="${avatar}">
         <img src="${this.pathPicture}">
         </div>
-        <div class="desc">
-          <ol class="list-about-users">
+        <div class="${desc}">
+          <ol class="${listUsers}">
             <li>Имя: ${this.arrayTitle[1]}</li>
             <li>Фамилия: ${this.arrayTitle[2]}</li>
             <li>Статус: ${this.arrayTitle[0]}</li>
@@ -27,6 +27,7 @@ class TegLi {
     </li>`;
 
     const block = document.querySelector(this.nameClass);
+    // добавляем html li на страницу
     block.insertAdjacentHTML('beforeEnd', li);
   }
 

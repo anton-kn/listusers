@@ -27,17 +27,17 @@ form.onsubmit = function(e){
       deleteUsers('.user-list');
       // объект с данными о пользователях
       let users = new Users(data);
-      console.log(users.results());
+      // console.log(users.results());
       // сортируем массив
       // name.first - это ключ, где записаны имена пользователей
       sortArray(users.results(), 'name', 'first', state);
-      console.log(users.location(0));
+      // console.log(users.location(0));
 
       // перебираем всех пользователей
       users.results().forEach((item, i) => {
         let li = new TegLi('.user-list', users.pictureLarge(i), users.name(i));
         // выодим на страницу
-        li.addTegLi();
+        li.addTegLi('avatar','description','list-about-users');
       });
 
       // ===управляем модальным окном===
